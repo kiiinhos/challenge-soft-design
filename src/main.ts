@@ -1,7 +1,8 @@
+import * as dotenv from 'dotenv';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { setupSwagger } from './swagger';
-import * as dotenv from 'dotenv';
+
 
 async function bootstrap() {
   dotenv.config();

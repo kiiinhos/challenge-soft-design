@@ -8,9 +8,11 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UserSchema } from '../user/schemas/user.schema';
 import { UserService } from '../user/user.service';
 import {LocalStrategy} from '../auth/local.auth'
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     UsersModule,
     PassportModule,
     JwtModule.register({

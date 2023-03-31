@@ -1,23 +1,21 @@
-# Use an official Node.js runtime as a parent image
-FROM node:latest
-
-# Set the working directory in the container to /app
-WORKDIR /app
-
-# Copy the package.json and package-lock.json files to the container
-COPY package*.json ./
-
-# Install the dependencies from the package.json file
-RUN npm install
-
-# Copy the rest of the application files to the container
-COPY . .
-
-# Build the NestJS application
+ARG USER=node
+ARG APP_HOME=/home/${USER}/app
+ARG PORT=3000
+FROM node:16-alpine As base
+ARG APP_HOME
+WORKDIR ${APP_HOME}
+COPY . ${APP_HOME}
+RUN npm install \
+    && npm cache clean --force
 RUN npm run build
-
-# Expose port 3000 for the application
-EXPOSE 3000
-
-# Start the application when the container starts
-CMD [ "npm", "start" ]
+FROM node:16-alpine
+ARG USER
+ARG APP_HOME
+ARG PORT
+ENV NODE_PATH=.
+WORKDIR ${APP_HOME}
+COPY --chown=${USER}:${USER} --from=base ${APP_HOME} ${APP_HOME}
+RUN ls -l
+USER ${USER}
+EXPOSE ${PORT}
+CMD [ "node", "dist/main.js" ]

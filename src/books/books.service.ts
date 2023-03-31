@@ -106,9 +106,6 @@ export class BooksService {
     book.rentedBy = userId;
     await book.save();
 
-    // user.booksRented += 1;
-    // await user.save();
-
     return;
   }
 
@@ -118,7 +115,7 @@ export class BooksService {
       throw new NotFoundException('Book not found');
     }
 
-    if (book.rentedBy != '6423abe2e2c539eac894f1dd') {
+    if (book.rentedBy != bookId) {
       throw new NotFoundException('You cant return a book you didnt rent ')
     }
 

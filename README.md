@@ -22,9 +22,38 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Features
+1. **Login**
+   - Endpoint for login
+   - It should not be possible to access the other endpoints without logging in.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+2. **Book List**
+   - Endpoint to display a list of all registered books, with search option
+   - Endpoint to display details of a book
+   - Endpoint to allow renting a book
+   - It should not be possible to rent an already rented book.
+
+3. **CRUD of Books**
+   - Endpoint for registering, editing and removing books
+   - It should not be possible to edit and remove books that are rented.
+
+## Assumptions
+- Use of MongoDB database.
+- Use of some Lint.
+- Use of a public repository (Bitbucket, Github).
+- Presence of unit tests.
+
+## Differentiator
+- Use of Docker.
+
+## Evaluation Criteria
+- Code structure.
+- Validation of business rules.
+- Presence of unit tests.
+- REST API and Design Patterns.
+- Use of GIT.
+- Deadline of 5 days after receiving this specification.
+
 
 ## Installation
 
@@ -43,6 +72,14 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+```
+
+## Docker
+
+```bash
+$ docker build -t <nome-da-imagem> 
+
+$ docker run -p 3000:3000 <nome-da-imagem>
 ```
 
 ## Test
