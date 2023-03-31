@@ -84,15 +84,6 @@ export class BooksService {
   }
 
   async rentBook(userId: string, bookId: string): Promise<void> {
-    // const user = await this.userModel.findById(userId);
-    // if (!user) {
-    //   throw new NotFoundException('User not found');
-    // }
-
-    // if (user.booksRented >= MAX_BOOKS_RENTED) {
-    //   throw new BadRequestException('User has reached maximum number of books rented');
-    // }
-
     const book = await this.bookModel.findById(bookId);
     if (!book) {
       throw new NotFoundException('Book not found');

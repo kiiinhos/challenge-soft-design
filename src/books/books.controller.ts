@@ -47,7 +47,6 @@ export class BooksController {
   @ApiResponse({
     status: 200,
     description: 'Book retrieved successfully',
-    type: Response,
   })
   @Get()
   async findAll(@Query() paramiters) {
