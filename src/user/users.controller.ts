@@ -1,11 +1,13 @@
-import { Controller, Get, Post, Body, Param,Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param,Query, UseGuards } from '@nestjs/common';
 import { UserService } from '../user/user.service';
 import { User } from '../user/interfaces/user.interface';
 import { CreateUserDto } from '../user/dto/user.dto';
 import * as bcrypt from 'bcrypt';
 import { ApiBadRequestResponse, ApiOperation, ApiResponse, ApiTags,ApiBody } from '@nestjs/swagger';
 import mongoose from 'mongoose';
+import { JwtAuthGuard } from 'src/auth/auth.guard';
 
+@UseGuards(JwtAuthGuard)
 @ApiTags('Users')
 @Controller('users')
 export class UsersController {
