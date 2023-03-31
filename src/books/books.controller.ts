@@ -10,7 +10,7 @@ import { CreateUserDto } from 'src/user/dto/user.dto';
 
 
 @UseGuards(JwtAuthGuard)
-@Controller('')
+@Controller('books')
 export class BooksController {
   constructor(private readonly booksService: BooksService) { }
 
