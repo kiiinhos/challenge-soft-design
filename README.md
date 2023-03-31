@@ -47,7 +47,8 @@ $ npm run start:prod
 
 # Docker
 ``bash
-$ docker build -t <nome-da-imagem> .
+$ docker build -t <nome-da-imagem> 
+
 $ docker run -p 3000:3000 <nome-da-imagem>
 ``
 
