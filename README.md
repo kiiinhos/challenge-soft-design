@@ -73,9 +73,6 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
-# Docker
-```bash
-$ docker build -t <nome-da-imagem> 
 
 ## Docker
 
