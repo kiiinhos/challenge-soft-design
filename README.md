@@ -45,6 +45,10 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+# Docker
+$ docker build -t <nome-da-imagem> .
+$ docker run -p 3000:3000 <nome-da-imagem>
+
 ## Test
 
 ```bash
