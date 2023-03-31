@@ -44,16 +44,12 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
-```bash
-$ npm install
-```
 # Docker
-``bash
+```bash
 $ docker build -t <nome-da-imagem> 
 
 $ docker run -p 3000:3000 <nome-da-imagem>
-``
-
+```
 ## Test
 
 ```bash
